@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CalculandoSeuPeso</string>
+    <string name="Resultado">txtResult</string>
+    <string name="msg">Resultado</string>
+    <string name="msgg">Click Aqui</string>
+    <string name="mensg">Para mais informações Click no butão!</string>
+    <string name="txtResultado" />
+</resources>
