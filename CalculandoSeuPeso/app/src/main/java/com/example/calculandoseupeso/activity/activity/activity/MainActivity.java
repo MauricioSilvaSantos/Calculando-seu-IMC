@@ -1,4 +1,4 @@
-package com.example.calculandoseupeso;
+package com.example.calculandoseupeso.activity.activity.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.calculandoseupeso.R;
 
 public class MainActivity extends AppCompatActivity {
 

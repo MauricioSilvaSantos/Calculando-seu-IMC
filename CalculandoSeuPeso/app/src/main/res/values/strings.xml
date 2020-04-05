@@ -5,4 +5,11 @@
     <string name="msgg">Click Aqui</string>
     <string name="mensg">Para mais informações Click no butão!</string>
     <string name="txtResultado" />
+    <string name="msgPeso">Qual  seu peso Ex: 85</string>
+    <string name="btnCalculo">Calcular IMC</string>
+    <string name="msgCalculadora">Calculadora de IMC</string>
+    <string name="msgAltura">Digite Sua Altura Ex: 1,75</string>
+    <string name="msgTitulo">IMC
+    </string>
+    <string name="msgResultado">Resultado</string>
 </resources>
