@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             Double valorPeso = Double.parseDouble(peso);
             Double valorAltura = Double.parseDouble(altura);
             Double resultado = valorPeso / (valorAltura * valorAltura);
-
             Intent intentObj = new Intent(MainActivity.this, Main2Activity.class);
             intentObj.putExtra(EXTRA_NUMBER, String.valueOf(resultado));
             startActivity(intentObj);
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             textResul.setText("Informe os Valores!");
         }
     }
-
     public Boolean ValidarCampos (String valorPeso, String valorAltura){
 
         Boolean validarCampo = true;

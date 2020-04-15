@@ -9,11 +9,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.calculandoseupeso.R;
 import com.example.calculandoseupeso.activity.activity.adapter.AdapterImc;
+import com.example.calculandoseupeso.activity.activity.model.RecycleViewCLickListener;
 import com.example.calculandoseupeso.activity.activity.model.TabelaImc;
 
 import java.text.DecimalFormat;
@@ -21,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
-
     private TextView textView;
     double numero1;
     private RecyclerView recyclerView ;
@@ -54,28 +56,60 @@ public class Main2Activity extends AppCompatActivity {
         numero1 = Double.parseDouble(OriginIntent.getStringExtra(MainActivity.EXTRA_NUMBER));
 
         if (numero1 < 17) {
-            textView.setText("Muito abaixo do peso\nIMC =" + numero1 );
+            textView.setText("Muito abaixo do peso\nIMC =" + numero1);
 
         } else if (numero1 <= 17 && numero1 >= 18.49) {
             textView.setText("Abaixo do peso\nIMC =" + numero1);
 
         } else if (numero1 >= 18.50 && numero1 <= 24.99) {
-            textView.setText("Peso normal \nIMC =" +numero1);
+            textView.setText("Peso normal \nIMC =" + numero1);
 
         } else if (numero1 >= 25 && numero1 <= 29.99) {
-            textView.setText("Acima do peso\nIMC =" + numero1);
+            textView.setText("Sobrepeso\nIMC =" + numero1);
 
         } else if (numero1 >= 30 && numero1 <= 34.49) {
             textView.setText("Obesidade 1 \nIMC =" + numero1);
-        } else if(numero1 >= 35 && numero1 <= 39.99) {
+        } else if (numero1 >= 35 && numero1 <= 39.99) {
             textView.setText("Obesidade 2\nIMC =" + numero1);
 
-        }else {
-            textView.setText("Obesidade 3\nIMC ="+numero1);
+        } else {
+            textView.setText("Obesidade 3\nIMC =" + numero1);
         }
 
-    }
 
+        //Evento de click
+        recyclerView.addOnItemTouchListener(
+                new RecycleViewCLickListener(getApplicationContext(), recyclerView, new RecycleViewCLickListener.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        TabelaImc lista = listaImc.get(position);
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Item pressionado: " + lista.getTitulo(),
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        TabelaImc lista = listaImc.get(position);
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Click Longo: " + lista.getTitulo(),
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+
+                }
+
+
+                ));
+
+    }
     public void  criarTabelaImc(){
         TabelaImc tabelaImc = new TabelaImc("IMC", "Resultado");
         this.listaImc.add(tabelaImc);

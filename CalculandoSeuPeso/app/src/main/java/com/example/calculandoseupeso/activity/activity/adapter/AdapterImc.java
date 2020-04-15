@@ -30,21 +30,17 @@ public class AdapterImc extends RecyclerView.Adapter<AdapterImc.MyViewHolder > {
 
         return new MyViewHolder(itemLista);
     }
-
     @Override
     public void onBindViewHolder( @NonNull MyViewHolder holder, int position ){
-
         TabelaImc tabelaImc = listaImc.get( position );
         holder.titulo.setText( tabelaImc.getTitulo() );
         holder.resultado.setText( tabelaImc.getResultado() );
     }
-
     @Override
     public int getItemCount() {
 
         return listaImc.size();
     }
-
     //Configurar ViewHolder
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
